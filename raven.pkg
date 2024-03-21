@@ -1,0 +1,12 @@
+Package: raven
+Version: 01
+Maintainer: Ian LeCorbeau <I-LeCorbeau@protonmail.com>
+Architecture: amd64
+Section: x11
+Provides: x-window-manager
+Files: raven /usr/bin/
+ raven.1 /usr/share/man/man1/
+Readme: README.md
+Copyright: LICENSE
+Description: A Dynamic Window Manager
+ This is Ragnarok's fork of dwm.
