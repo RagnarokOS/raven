@@ -1,4 +1,4 @@
-./" $Ragnarok: raven.1,v 1.2 2023/10/14 17:22:39 lecorbeau Exp $
+./" $Ragnarok: raven.1,v 1.3 2024/03/21 17:30:17 lecorbeau Exp $
 .TH RAVEN 1 raven\-VERSION
 .SH NAME
 raven \- dynamic window manager
@@ -15,10 +15,14 @@ tiled layout places the master area on the left by default, while the rmaster an
 bottomstack layouts places the master area on the right and top, respectively.
 The stacking area contains all other windows. The number of master area windows 
 can be adjusted from zero to an arbitrary number. In monocle layout all windows
-are maximised to the screen size. The Deck layout places the master area to the
-left, and turns the stack area in a Monocle, where all windows cover one another.
-In floating mode, windows can be resized and moved freely. Dialog windows are always
-managed floating, regardless of the layout applied.
+are maximised to the screen size, minus the status bar and gaps. The Deck layout
+places the master area to the left, and turns the stack area in a Monocle,
+where all windows cover one another. In floating mode, windows can be resized and
+moved freely. Dialog windows are always managed floating, regardless of the layout
+applied.
+.P
+The default Layout is Monocle. Windows can be split by toggling any of the tiling
+modes. The default can be changed via a custom config.h file in the layouts section.
 .P
 Windows are grouped by tags. Each window can be tagged with one or multiple
 tags. Selecting certain tags displays all windows with these tags.
@@ -159,7 +163,7 @@ Toggles focused window between floating and tiled state.
 .B Mod1\-Button3
 Resize focused window while dragging. Tiled windows will be toggled to the floating state.
 .SH CUSTOMIZATION
-raven is customized by creating a custom config.h and (re)compiling the source
+Raven is customized by creating a custom config.h and (re)compiling the source
 code. This keeps it fast, secure and simple.
 .TP
 .SH SEE ALSO

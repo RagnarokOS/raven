@@ -1,4 +1,4 @@
-/* $Ragnarok: config.h,v 1.2 2023/10/14 17:19:14 lecorbeau Exp $
+/* $Ragnarok: config.h,v 1.3 2024/03/21 17:33:36 lecorbeau Exp $
  *
  * See LICENSE file for copyright and license details.
  */
@@ -49,9 +49,9 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 #include "layouts.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+	{ "[M]",      monocle }, /* first entry is default */
+	{ "[]=",      tile },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
 	{ "[B]",      bottomstack },
 	{ "=[]",      rightmaster },
 	{ "[D]",      deck },

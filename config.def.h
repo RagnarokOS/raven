@@ -1,4 +1,4 @@
-/* $Id: config.def.h,v 1.1 2023/07/24 23:19:35 lecorbeau Exp $
+/* $Id: config.def.h,v 1.3 2024/03/21 17:32:31 lecorbeau Exp $
  *
  * See LICENSE file for copyright and license details.
  */
@@ -10,7 +10,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int barsize   = 6;	/* Size of raven's bar */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = { "monospace:size=11" };
 static const char normbgcolor[]     = "#222222";
 static const char normbordercolor[] = "#444444";
 static const char normfgcolor[]     = "#bbbbbb";
@@ -48,9 +48,9 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 #include "layouts.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+	{ "[M]",      monocle }, /* first entry is default */
+	{ "[]=",      tile },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
 	{ "[B]",      bottomstack },
 	{ "=[]",      rightmaster },
 	{ "[D]",      deck },
