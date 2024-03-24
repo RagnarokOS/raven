@@ -1,4 +1,4 @@
-# $Ragnarok: config.mk,v 1.3 2024/03/24 17:47:29 lecorbeau Exp $
+# $Ragnarok: config.mk,v 1.4 2024/03/24 18:22:24 lecorbeau Exp $
 
 # raven version
 VERSION = 0.1
@@ -40,4 +40,4 @@ LDFLAGS  = ${LIBS} -flto=thin -Wl,-O2 -Wl,-z,relro,-z,now -Wl,--as-needed
 #LDFLAGS = ${LIBS}
 
 # compiler and linker
-CC = cc
+CC = clang
