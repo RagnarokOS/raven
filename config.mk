@@ -1,6 +1,4 @@
-# $Ragnarok: config.mk,v 1.2 2023/10/14 16:49:26 lecorbeau Exp $
-
-include ${TOPDIR}/usr/share/X11/mk/xprogs.mk
+# $Ragnarok: config.mk,v 1.3 2024/03/24 17:47:29 lecorbeau Exp $
 
 # raven version
 VERSION = 0.1
@@ -30,10 +28,12 @@ INCS = -I${X11INC} -I${FREETYPEINC}
 LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} ${FREETYPELIBS}
 
 # flags
-CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_C_SOURCE=200809L -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS} ${HARDENING_CPPFLAGS}
+CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_C_SOURCE=200809L -DVERSION=\"${VERSION}\" \
+	   ${XINERAMAFLAGS} -D_FORTIFY_SOURCE=2
 #CFLAGS   = -g -std=c99 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
-CFLAGS   = -std=c99 -pedantic -Wall -Wno-deprecated-declarations ${O_FLAG} ${INCS} ${CPPFLAGS} ${HARDENING_CFLAGS}
-LDFLAGS  = ${LIBS} ${HARDENING_LDFLAGS}
+CFLAGS   = -std=c99 -pedantic -Wall -Wno-deprecated-declarations -O2 -flto=thin ${INCS} ${CPPFLAGS} \
+	   -Wformat -Wformat-security -fstack-clash-protection -fstack-protector-strong -fcf-protection
+LDFLAGS  = ${LIBS} -flto=thin -Wl,-O2 -Wl,-z,relro,-z,now -Wl,--as-needed
 
 # Solaris
 #CFLAGS = -fast ${INCS} -DVERSION=\"${VERSION}\"
