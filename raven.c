@@ -1,4 +1,4 @@
-/* $Id: raven.c,v 1.1 2023/07/24 23:19:35 lecorbeau Exp $
+/* $Id: raven.c,v 1.3 2024/03/24 18:37:14 lecorbeau Exp $
  *
  * See LICENSE file for copyright and license details.
  *
@@ -1911,7 +1911,7 @@ updatebarpos(Monitor *m)
 }
 
 void
-updateclientlist()
+updateclientlist(void)
 {
 	Client *c;
 	Monitor *m;
