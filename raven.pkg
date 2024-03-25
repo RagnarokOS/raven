@@ -8,5 +8,6 @@ Files: raven /usr/bin/
  raven.1 /usr/share/man/man1/
 Readme: README.md
 Copyright: LICENSE
+Changelog: changelog
 Description: A Dynamic Window Manager
  This is Ragnarok's fork of dwm.
