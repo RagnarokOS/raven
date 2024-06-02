@@ -1,4 +1,4 @@
-# $Ragnarok: Makefile,v 1.2 2024/03/21 16:32:58 lecorbeau Exp $
+# $Ragnarok: Makefile,v 1.3 2024/06/02 14:45:01 lecorbeau Exp $
 
 # raven - dynamic window manager
 # See LICENSE file for copyright and license details.
@@ -45,6 +45,8 @@ install: all
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < raven.1 > ${DESTDIR}${MANPREFIX}/man1/raven.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/raven.1
+	mkdir -p ${DESTDIR}/usr/share/doc/raven/examples
+	cp -f statusbar.sh ${DESTDIR}/usr/share/doc/raven/examples/
 
 deb: all
 	/usr/bin/equivs-build raven.pkg
