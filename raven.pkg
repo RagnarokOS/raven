@@ -4,6 +4,8 @@ Maintainer: Ian LeCorbeau <I-LeCorbeau@protonmail.com>
 Architecture: amd64
 Section: x11
 Provides: x-window-manager
+Depends: rt,
+ dmenu,
 Files: raven /usr/bin/
  raven.1 /usr/share/man/man1/
  statusbar.sh /usr/share/doc/raven/examples/
