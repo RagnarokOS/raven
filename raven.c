@@ -1,4 +1,4 @@
-/* $Id: raven.c,v 1.3 2024/03/24 18:37:14 lecorbeau Exp $
+/* $Id: raven.c,v 1.4 2024/06/03 22:48:24 lecorbeau Exp $
  *
  * See LICENSE file for copyright and license details.
  *
@@ -1632,7 +1632,7 @@ setup(void)
 	if (!drw_fontset_create(drw, fonts, LENGTH(fonts)))
 		die("no fonts could be loaded.");
 	lrpad = drw->fonts->h;
-	bh = drw->fonts->h + barsize;
+	bh = barsize;
 	updategeom();
 	/* init atoms */
 	utf8string = XInternAtom(dpy, "UTF8_STRING", False);
