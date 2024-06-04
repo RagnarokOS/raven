@@ -1,25 +1,27 @@
-/* $Id: config.def.h,v 1.4 2024/03/27 15:13:50 lecorbeau Exp $
+/* $Ragnarok: config.def.h,v 1.5 2024/06/04 16:17:24 lecorbeau Exp $
  *
  * See LICENSE file for copyright and license details.
  */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 10;        /* gaps between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int barsize   = 6;	/* Size of raven's bar */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=11" };
-static const char normbgcolor[]     = "#222222";
-static const char normbordercolor[] = "#444444";
-static const char normfgcolor[]     = "#bbbbbb";
-static const char selfgcolor[]      = "#eeeeee";
-static const char selbordercolor[]  = "#5294E2";
-static const char selbgcolor[]      = "#5294E2";
-static const char titlebordercolor[] = "#5294E2";
-static const char titlebgcolor[]     = "#242424";
-static const char titlefgcolor[]      = "#eeeeee";
+static const unsigned int borderpx	= 1;				/* border pixel of windows */
+static const unsigned int gappx		= 10;				/* gaps between windows */
+static const unsigned int snap		= 32;				/* snap pixel */
+static const unsigned int barsize	= 24;				/* Size of raven's bar */
+static const int showbar		= 1;				/* 0 means no bar */
+static const int topbar			= 1;				/* 0 means bottom bar */
+static const char *fonts[]		= { "DejaVu Sans Mono:size=11" };
+static const char dmenufont[]		= "DejaVu Sans Mono:size=11";	/* dmenu's font */
+static const char dmenuprompt[]		= "Run";			/* dmenu's prompt */	
+static const char normbgcolor[]		= "#242424";
+static const char normbordercolor[]	= "#444444";
+static const char normfgcolor[]		= "#bbbbbb";
+static const char selfgcolor[]		= "#eeeeee";
+static const char selbordercolor[]	= "#5294E2";
+static const char selbgcolor[]		= "#5294E2";
+static const char titlebordercolor[]	= "#5294E2";
+static const char titlebgcolor[]	= "#242424";
+static const char titlefgcolor[]	= "#eeeeee";
 static const char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -57,16 +59,26 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
+/* helper for spawning shell commands in the pre dwm-5.0 fashion */
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+
+/* commands */
+static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+static const char *dmenucmd[] = { "dmenu_run", "-p", dmenuprompt, "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *termcmd[]  = { "/usr/bin/rt", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      togglebar,      {0} },
+	{ Mod1Mask,                     XK_p,      spawn,          {.v = dmenucmd } },
+	{ Mod1Mask,	                XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
