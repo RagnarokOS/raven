@@ -1,3 +1,9 @@
+raven (01.2) stable; urgency=medium
+
+  * Fixed wrong keyboard shortcut for rt in raven.1.
+
+ -- Ian LeCorbeau <I-LeCorbeau@protonmail.com>  Tue, 18 Jun 2024 11:29:33 -0400
+
 raven (01.1) stable; urgency=medium
 
   * Build using config.h.
