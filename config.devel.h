@@ -1,4 +1,4 @@
-/* $Ragnarok: config.devel.h,v 1.1 2024/06/04 16:27:40 lecorbeau Exp $
+/* $Ragnarok: config.devel.h,v 1.2 2024/11/11 16:18:34 lecorbeau Exp $
  *
  * See LICENSE file for copyright and license details.
  */
@@ -57,6 +57,7 @@ static const Layout layouts[] = {
 	{ "[B]",      bottomstack },
 	{ "=[]",      rightmaster },
 	{ "[D]",      deck },
+	{ "[G]",      grid },
 };
 
 /* key definitions */
@@ -97,6 +98,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_d,      setlayout,      {.v = &layouts[5]} },
+	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[6]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,	                XK_f,	   togglefullscrn, {0} },

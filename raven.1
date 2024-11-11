@@ -1,6 +1,6 @@
-./"	$Ragnarok: raven.1,v 1.6 2024/06/15 15:44:47 lecorbeau Exp $
+./"	$Ragnarok: raven.1,v 1.8 2024/11/11 16:24:18 lecorbeau Exp $
 ./"
-.Dd $Mdocdate: June 15 2024 $
+.Dd $Mdocdate: November 11 2024 $
 .Dt RAVEN 1
 .Os
 .Sh NAME
@@ -21,9 +21,10 @@ The stacking area contains all other windows. The number of master area windows
 can be adjusted from zero to an arbitrary number. In monocle layout all windows
 are maximised to the screen size, minus the status bar and gaps. The Deck layout
 places the master area to the left, and turns the stack area in a Monocle,
-where all windows cover one another. In floating mode, windows can be resized and
-moved freely. Dialog windows are always managed floating, regardless of the layout
-applied.
+where all windows cover one another. The grid layout organinizes the windows in
+a grid when more than three windows are opened on the same tag. In floating mode,
+windows can be resized and moved freely. Dialog windows are always managed floating,
+regardless of the layout applied.
 .Pp
 The default Layout is Monocle. Windows can be split by toggling any of the tiling
 modes. The default can be changed via a custom config.h file in the layouts section.
@@ -101,6 +102,8 @@ Toggles the bottomstack layout
 Toggles the rightmaster layout
 .It Sy MOD\-d
 Toggles the Deck layout.
+.It Sy MOD\-g
+Toggles the Grid layout.
 .It Sy MOD\-space
 Toggles between current and previous layout.
 .It Sy MOD\-j
