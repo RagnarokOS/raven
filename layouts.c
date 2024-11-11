@@ -1,4 +1,4 @@
-/* $Id: layouts.c,v 1.2 2024/11/11 16:12:54 lecorbeau Exp $
+/* $Id: layouts.c,v 1.3 2024/11/11 18:18:41 lecorbeau Exp $
  *
  * See LICENSE file for copyright and license details.
  */
@@ -85,7 +85,7 @@ grid(Monitor *m) {
 		return;
 	if(n == 1){
 		c = nexttiled(m->clients);
-		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
+		resize(c, m->wx + m->gappx, m->wy + m->gappx, m->ww - 2 * c->bw - 2*m->gappx, m->wh - 2 * c->bw - 2*m->gappx, 0);
 		return;
 	}
 
