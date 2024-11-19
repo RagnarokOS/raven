@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+# This var will get defined when running 'make deb'.
+# See: Makefile
+PREFIX=
+
+# As usual, prevent dpkg from setting wrong permissions.
+/usr/bin/chmod 755 "${PREFIX}/bin/raven"
+/usr/bin/chown root:root "${PREFIX}/bin/raven"
+/usr/bin/chmod 644 "${PREFIX}share/man/man1/raven.1"
+/usr/bin/chown root:root "${MANPREFIX}share/man/man1/raven.1"
