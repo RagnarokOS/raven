@@ -1,4 +1,4 @@
-# $Ragnarok: Makefile,v 1.3 2024/06/02 14:45:01 lecorbeau Exp $
+# $Ragnarok: Makefile,v 1.3 2024/06/02 14:45:01 lecorbeau Exp i $
 
 # raven - dynamic window manager
 # See LICENSE file for copyright and license details.
@@ -32,11 +32,11 @@ clean:
 
 dist: clean
 	mkdir -p raven-${VERSION}
-	cp -R LICENSE Makefile README config.def.h config.mk\
-		raven.1 drw.h util.h ${SRC} transient.c raven-${VERSION}
-	tar -cf raven-${VERSION}.tar raven-${VERSION}
-	gzip raven-${VERSION}.tar
-	rm -rf raven-${VERSION}
+	cp -r DEBIAN raven-${VERSION}
+	cp -R LICENSE Makefile README config.def.h config.devel.h config.mk \
+		raven.1 drw.h util.h ${SRC} transient.c layouts.c \
+		statusbar.sh raven-${VERSION}
+	tar -czvf raven-${VERSION}.tar raven-${VERSION}
 
 install: all
 	mkdir -p ${DESTDIR}${PREFIX}/bin
