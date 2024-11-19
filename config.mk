@@ -1,7 +1,8 @@
-# $Ragnarok: config.mk,v 1.4 2024/03/24 18:22:24 lecorbeau Exp $
+# $Ragnarok: config.mk,v 1.5 2024/11/19 18:48:11 lecorbeau Exp $
 
 # raven version
 VERSION = 0.1
+PKG	= raven_${VERSION}_amd64
 
 # Customize below to fit your system
 

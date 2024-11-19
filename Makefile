@@ -1,4 +1,4 @@
-# $Ragnarok: Makefile,v 1.4 2024/11/19 17:07:45 lecorbeau Exp $
+# $Ragnarok: Makefile,v 1.5 2024/11/19 18:47:12 lecorbeau Exp $
 
 # raven - dynamic window manager
 # See LICENSE file for copyright and license details.
@@ -37,6 +37,7 @@ dist: clean
 		raven.1 drw.h util.h ${SRC} transient.c layouts.c \
 		statusbar.sh raven-${VERSION}
 	tar -czvf raven-${VERSION}.tgz raven-${VERSION}
+	rm -r raven-${VERSION}
 
 install: all
 	mkdir -p ${DESTDIR}${PREFIX}/bin
@@ -48,8 +49,19 @@ install: all
 	mkdir -p ${DESTDIR}/usr/share/doc/raven/examples
 	cp -f statusbar.sh ${DESTDIR}/usr/share/doc/raven/examples/
 
-deb: all
-	/usr/bin/equivs-build raven.pkg
+deb: dist all
+	mkdir -p ${PKG}${PREFIX}
+	mkdir -p ${PKG}${PREFIX}/bin
+	cp -r DEBIAN ${PKG}/
+	cp -f raven ${PKG}${PREFIX}/bin
+	mkdir -p ${PKG}${MANPREFIX}/man1
+	cp -f raven.1 ${PKG}${MANPREFIX}/man1/raven.1
+	sed -i "s|PREFIX=|PREFIX=${PREFIX}|" ${PKG}/DEBIAN/postinst
+	mkdir -p ${PKG}/usr/share/doc/raven/examples
+	cp -f statusbar.sh ${PKG}/usr/share/doc/raven/examples/
+	mkdir -p ${PKG}/usr/src
+	cp -f raven-${VERSION}.tgz ${PKG}/usr/src/
+	dpkg-deb -b ${PKG}
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/raven\
