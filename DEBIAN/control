@@ -1,0 +1,14 @@
+Package: raven
+Version: 0.1
+Section: x11
+Priority: optional
+Architecture: amd64
+Maintainer: Ian LeCorbeau <I-LeCorbeau@protonmail.com>
+Depends: debhelper-compat (= 13),
+ libx11-dev,
+ libxinerama-dev,
+ libxft-dev,
+ libfreetype6-dev,
+ dpkg-dev
+Description: The Raven window manager
+ Raven is a fork of Suckless' dwm.
