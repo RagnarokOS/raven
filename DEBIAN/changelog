@@ -1,3 +1,11 @@
+raven (01.3) stable; urgency=medium
+
+  * Added the 'grid' layout.
+  * A tarball of the source code is now provided
+    (in /usr/src/) for customization.
+
+ -- Ian LeCorbeau <I-LeCorbeau@protonmail.com>  Wed, 20 Nov 2024 11:21:05 -0500
+
 raven (01.2) stable; urgency=medium
 
   * Fixed wrong keyboard shortcut for rt in raven.1.
