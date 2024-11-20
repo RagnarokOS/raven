@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+# Move the source tarball if it already exists.
+if [ -f /usr/src/raven-01.tgz ]; then
+	mv /usr/src/raven-01.tgz /usr/src/raven-01.tgz.old
+fi
