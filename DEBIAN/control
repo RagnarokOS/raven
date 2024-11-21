@@ -4,8 +4,7 @@ Section: x11
 Priority: optional
 Architecture: amd64
 Maintainer: Ian LeCorbeau <I-LeCorbeau@protonmail.com>
-Depends: debhelper-compat (= 13),
- libx11-dev,
+Depends: libx11-dev,
  libxinerama-dev,
  libxft-dev,
  libfreetype6-dev,
