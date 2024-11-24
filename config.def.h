@@ -1,4 +1,4 @@
-/* $Ragnarok: config.def.h,v 1.6 2024/11/11 16:16:56 lecorbeau Exp $
+/* $Ragnarok: config.def.h,v 1.7 2024/11/24 16:39:13 lecorbeau Exp $
  *
  * See LICENSE file for copyright and license details.
  */
@@ -50,8 +50,8 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 #include "layouts.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[M]",      monocle }, /* first entry is default */
-	{ "[]=",      tile },
+	{ "[]=",      tile }, /* first entry is default */
+	{ "[M]",      monocle },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[B]",      bottomstack },
 	{ "=[]",      rightmaster },
@@ -91,9 +91,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_b,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_d,      setlayout,      {.v = &layouts[5]} },
