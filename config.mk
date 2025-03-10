@@ -1,8 +1,7 @@
-# $Ragnarok: config.mk,v 1.6 2024/11/20 17:38:46 lecorbeau Exp $
+# $Ragnarok: config.mk,v 1.7 2025/03/10 15:14:44 lecorbeau Exp $
 
 # raven version
 VERSION = 01
-PKG	= raven_${VERSION}_amd64
 
 # Customize below to fit your system
 
@@ -29,16 +28,15 @@ INCS = -I${X11INC} -I${FREETYPEINC}
 LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} ${FREETYPELIBS}
 
 # flags
-CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_C_SOURCE=200809L -DVERSION=\"${VERSION}\" \
+CPPFLAGS += -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_C_SOURCE=200809L -DVERSION=\"${VERSION}\" \
 	   ${XINERAMAFLAGS} -D_FORTIFY_SOURCE=2
 #CFLAGS   = -g -std=c99 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
-CFLAGS   = -std=c99 -pedantic -Wall -Wno-deprecated-declarations -O2 -flto=thin ${INCS} ${CPPFLAGS} \
-	   -Wformat -Wformat-security -fstack-clash-protection -fstack-protector-strong -fcf-protection
-LDFLAGS  = ${LIBS} -flto=thin -Wl,-O2 -Wl,-z,relro,-z,now -Wl,--as-needed
+CFLAGS   += -std=c99 -pedantic -Wall -Wno-deprecated-declarations ${INCS} ${CPPFLAGS}
+LDFLAGS  += ${LIBS}
 
 # Solaris
 #CFLAGS = -fast ${INCS} -DVERSION=\"${VERSION}\"
 #LDFLAGS = ${LIBS}
 
 # compiler and linker
-CC = clang
+#CC = clang
